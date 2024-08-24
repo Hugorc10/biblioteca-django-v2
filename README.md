@@ -1,4 +1,4 @@
-# Bilioteca Django
+# Biblioteca Django
 
 ## Descrição
 
@@ -52,5 +52,6 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
 
    ```bash
    python manage.py runserver
+   ```
 
-   *A API estará disponível em http://127.0.0.1:8000/.*
+   A API estará disponível em http://127.0.0.1:8000/.
