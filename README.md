@@ -1,4 +1,4 @@
-# API de Livros - Django
+# Bilioteca Django
 
 ## Descrição
 
@@ -7,7 +7,7 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
 ## Funcionalidades
 
 - **Listar livros:** Retorna uma lista de todos os livros cadastrados.
-- **Detalhar livro:** Retorna os detalhes de um livro específico.
+- **Retona livro especifico:** Retorna os detalhes de um livro específico.
 - **Criar livro:** Adiciona um novo livro à coleção.
 - **Atualizar livro:** Atualiza as informações de um livro existente.
 - **Excluir livro:** Remove um livro da coleção.
