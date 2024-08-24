@@ -21,7 +21,7 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
 ## Requisitos
 
 - Python 3.8+
-- Django 4.x
+- Django 5.x
 - Django REST Framework 3.x
 
 ## Instalação
@@ -31,3 +31,8 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
    cd nome-do-repositorio
+
+2. ** Crie o ambiente virtual:**
+  ```bash
+  python -m venv venv
+  source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
