@@ -17,7 +17,7 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
 - [Django](https://www.djangoproject.com/) - Framework web utilizado para o desenvolvimento.
 - [Django REST Framework](https://www.django-rest-framework.org/) - Biblioteca para construção de APIs RESTful em Django.
 - [SQLite](https://www.sqlite.org/index.html) - Banco de dados padrão para desenvolvimento.
-  
+
 ## Requisitos
 
 - Python 3.8+
@@ -29,10 +29,28 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   cd nome-do-repositorio
+   git clone git@github.com:Hugorc10/biblioteca-django.git
+   cd biblioteca-django
 
-2. ** Crie o ambiente virtual:**
-  ```bash
-  python -m venv venv
-  source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
+2. **Crie o ambiente virtual:**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
+
+3. **Instale as dependências:**
+
+   ```bash
+   pip install -r requirements.txt
+
+4. **Configure o banco de dados:**
+
+   ```bash
+   python manage.py migrate
+
+5. **Inicia o servidor de desenvolvimento:**
+
+   ```bash
+   python manage.py runserver
+
+   *A API estará disponível em http://127.0.0.1:8000/.*
