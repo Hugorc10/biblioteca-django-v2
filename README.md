@@ -46,9 +46,10 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
 4. **Configure o banco de dados:**
 
    ```bash
+   python manage.py makemigrations core
    python manage.py migrate
 
-5. **Inicia o servidor de desenvolvimento:**
+6. **Inicia o servidor de desenvolvimento:**
 
    ```bash
    python manage.py runserver
