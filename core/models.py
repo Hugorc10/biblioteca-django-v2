@@ -2,22 +2,22 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.nome
 
 class Author(models.Model):
-    name = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.nome
 
 class Book(models.Model):
-    title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    published_in = models.DateField()
+    titulo = models.CharField(max_length=200)
+    autor = models.ForeignKey(Author, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Category, on_delete=models.CASCADE)
+    publicado_em = models.DateField()
 
     def __str__(self):
-        return self.title
+        return self.titulo

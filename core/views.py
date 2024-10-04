@@ -1,69 +1,65 @@
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.decorators import api_view
-from rest_framework.renderers import JSONRenderer
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
-from rest_framework import status, generics
-from core.filters import CategoriaFilter, LivroFilter, AutorFilter
+from rest_framework import generics
+from core.filters import CategoriesFilter, BooksFilter, AuthorsFilter
 from .models import Book, Category, Author
-from .serializers import CategoriaSerializer, LivroSerializer, AutorSerializer
+from .serializers import CategorySerializer, BookSerializer, AuthorSerializer
 
 class APIRootView(generics.GenericAPIView):
     name = 'api-root'
 
     def get(self, request, *args, **kwargs):
         return Response({
-            'categories.': reverse(CategoriesList.name, request=request),
-            'author': reverse(AuthorsDetail.name, request=request),
-            'books': reverse(BooksList.name, request=request),
+            'categories.': reverse(CategoryList.name, request=request),
+            'authors': reverse(AuthorList.name, request=request),
+            'books': reverse(BookList.name, request=request),
         })
 
-class BooksList(generics.ListCreateAPIView):    # /livros/
+class BookList(generics.ListCreateAPIView):    # /livros/
     queryset = Book.objects.all()
-    serializer_class = LivroSerializer
-    filterset_class = LivroFilter
-    search_fields = ('^title',)
-    ordering_fields = ['title', 'author', 'category', 'published_in']
-    name = 'books-list'
+    serializer_class = BookSerializer
+    filterset_class = BooksFilter
+    search_fields = ('^titulo',)
+    ordering_fields = ['titulo', 'autor', 'categoria', 'publicado_em']
+    name = 'book-list'
 
-class BooksDetail(generics.RetrieveUpdateDestroyAPIView):    # /livros/<int:pk>/
+class BookDetail(generics.RetrieveUpdateDestroyAPIView):    # /livros/<int:pk>/
     queryset = Book.objects.all()
-    serializer_class = LivroSerializer
-    name = 'books-detail'
+    serializer_class = BookSerializer
+    name = 'book-detail'
 
-class CategoriesList(generics.ListCreateAPIView):    # /categorias/
+class CategoryList(generics.ListCreateAPIView):    # /categorias/
     queryset = Category.objects.all()
-    serializer_class = CategoriaSerializer
-    filterset_class = CategoriaFilter
-    search_fields = ("^name",)
-    ordering_fields = ("name",)
-    name = 'categories-list'
+    serializer_class = CategorySerializer
+    filterset_class = CategoriesFilter
+    search_fields = ("^nome",)
+    ordering_fields = ("nome",)
+    name = 'category-list'
 
-class CategoriesDetail(generics.RetrieveUpdateDestroyAPIView):    # /categorias/<int:pk>/
+class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):    # /categorias/<int:pk>/
     queryset = Category.objects.all()
-    serializer_class = CategoriaSerializer
-    name = 'categories-detail'
+    serializer_class = CategorySerializer
+    name = 'category-detail'
 
-class BooksListByCategory(generics.ListAPIView):    # /categorias/<int:pk>/livros/
-    serializer_class = LivroSerializer
-    name = 'books-list-by-category'
+class BookListByCategory(generics.ListAPIView):    # /categorias/<int:pk>/livros/
+    serializer_class = BookSerializer
+    name = 'book-list-by-category'
 
     def get_queryset(self):
         categoria = self.kwargs['pk']
         return Book.objects.filter(categoria=categoria)
 
-class AuthorsList(generics.ListCreateAPIView):    # /autores/
+class AuthorList(generics.ListCreateAPIView):    # /autores/
     queryset = Author.objects.all()
-    serializer_class = AutorSerializer
-    filterset_class = AutorFilter
-    ordering_fields = ['name']
-    name = 'authors-list'
+    serializer_class = AuthorSerializer
+    filterset_class = AuthorsFilter
+    # ordering_fields = ['nome', 'birth_date']
+    name = 'author-list'
 
-class AuthorsDetail(generics.RetrieveUpdateDestroyAPIView):    # /autores/<int:pk>/
+class AuthorDetail(generics.RetrieveUpdateDestroyAPIView):    # /autores/<int:pk>/
     queryset = Author.objects.all()
-    serializer_class = AutorSerializer
-    name = 'authors-detail'
+    serializer_class = AuthorSerializer
+    name = 'author-detail'
 
 # class JSONResponse(HttpResponse):
 # def __init__(self, data, **kwargs):

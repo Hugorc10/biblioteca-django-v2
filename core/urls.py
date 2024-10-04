@@ -3,12 +3,12 @@ from . import views
 
 urlpatterns = [
     path('', views.APIRootView.as_view(), name='api-root'),
-    path('books/', views.BooksList.as_view(), name=views.BooksList.name),
-    path('books/<int:pk>/', views.BooksDetail.as_view(), name=views.BooksDetail.name),
-    path('authors/', views.AuthorsList.as_view(), name=views.AuthorsList.name),
-    path('authors/<int:pk>/', views.AuthorsDetail.as_view(), name=views.AuthorsDetail.name),
-    path('categories/', views.CategoriesList.as_view(), name=views.CategoriesList.name),
-    path('categories/<int:pk>/', views.CategoriesDetail.as_view(), name=views.CategoriesDetail.name),
-    path('categories/<int:pk>/books/', views.BooksListByCategory.as_view(), name=views.BooksListByCategory.name),
+    path('livros/', views.BookList.as_view(), name=views.BookList.name),
+    path('livros/<int:pk>/', views.BookDetail.as_view(), name=views.BookDetail.name),
+    path('autores/', views.AuthorList.as_view(), name=views.AuthorList.name),
+    path('autores/<int:pk>/', views.AuthorDetail.as_view(), name=views.AuthorDetail.name),
+    path('categorias/', views.CategoryList.as_view(), name=views.CategoryList.name),
+    path('categorias/<int:pk>/', views.CategoryDetail.as_view(), name=views.CategoryDetail.name),
+    path('categorias/<int:pk>/livros/', views.BookListByCategory.as_view(), name=views.BookListByCategory.name),
 
 ]
