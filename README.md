@@ -49,6 +49,11 @@ Esta é uma API RESTful para gerenciar uma coleção de livros, desenvolvida com
    python manage.py makemigrations core
    python manage.py migrate
 
+5. **Se o banco de dados SQLite estiver vazio, popule com esse comando:
+
+   ```bash
+   python manage.py populate_db
+
 6. **Inicia o servidor de desenvolvimento:**
 
    ```bash
